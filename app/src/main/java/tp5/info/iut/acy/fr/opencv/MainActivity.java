@@ -7,11 +7,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.CameraBridgeViewBase;
 import org.opencv.android.CameraBridgeViewBase.CvCameraViewFrame;
-
 import org.opencv.android.CameraBridgeViewBase.CvCameraViewListener2;
 import org.opencv.android.LoaderCallbackInterface;
 import org.opencv.android.OpenCVLoader;
@@ -137,7 +135,7 @@ public class MainActivity extends Activity implements CvCameraViewListener2, OnC
 
             case FLAG_DEBRUITAGE:
                 Log.i("onCameraFrame en mode", "debruitage");
-                
+
                 // debruite l image depuis l image en gris avec les parametres recommandees dans la documents officiels de OpenCV
                 Photo.fastNlMeansDenoising(inputGray,input,3,7,21);
                 break;
@@ -149,7 +147,6 @@ public class MainActivity extends Activity implements CvCameraViewListener2, OnC
                 Imgproc.GaussianBlur(input,input,new Size(45,45),0);
                 break;
         }
-
         return input;
     }
 
